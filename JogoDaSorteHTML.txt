@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Sorte</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .message {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar do Bootstrap -->
+  <nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Jogo da Sorte</span>
+  </nav>
+
+  <div class="container text-center mt-5">
+    <h2>Escolha o botão correto!</h2>
+
+    <!-- Grupo de botões do Bootstrap -->
+    <div class="btn-group mt-3 mb-3" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary" onclick="verificaEscolha(1)">Botão 1</button>
+      <button type="button" class="btn btn-primary" onclick="verificaEscolha(2)">Botão 2</button>
+      <button type="button" class="btn btn-primary" onclick="verificaEscolha(3)">Botão 3</button>
+      <button type="button" class="btn btn-primary" onclick="verificaEscolha(4)">Botão 4</button>
+      <button type="button" class="btn btn-primary" onclick="verificaEscolha(5)">Botão 5</button>
+    </div>
+
+    <!-- Área onde a mensagem será exibida -->
+    <div id="resultado" class="message"></div>
+  </div>
+
+  <script>
+    // Número da sorte aleatório
+    const numeroCorreto = Math.floor(Math.random() * 5) + 1;
+
+    // Função para verificar a escolha do usuário
+    function verificaEscolha(numeroEscolhido) {
+      const resultado = document.getElementById('resultado');
+
+      if (numeroEscolhido === numeroCorreto) {
+        resultado.textContent = 'Parabéns! Você escolheu o número correto!';
+        resultado.className = 'message correct';
+      } else {
+        resultado.textContent = 'Que pena! Tente novamente.';
+        resultado.className = 'message incorrect';
+      }
+    }
+  </script>
+</body>
+</html>
